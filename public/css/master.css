@@ -1,0 +1,28 @@
+.cohort-list > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  
+  .cohort-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cohort-title > h4 {
+    margin: 0;
+  }
+  
+  .cohort-title > *:first-child {
+    margin-right: 0.5rem;
+  }
+  
+  .cohort-title-logo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10em;
+    display: inline-block;
+    height: 36px;
+    width: 36px;
+    flex-shrink: 0;
+  }
+  
