@@ -12,46 +12,22 @@ const sharedConfig = {
   },
 };
 
-
 module.exports = {
-
   development: {
-    client: 'sqlite3',
+    ...sharedConfig,
     connection: {
-      filename: './dev.sqlite3'
-    }
-  },
+      database: "super_team_picker_dev",
+    },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+    seeds: {
+      directory: "db/seeds",
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
 
   production: {
-    client: 'postgresql',
+    ...sharedConfig,
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: "super_team_picker_prod",
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
+  },
 };

@@ -4,6 +4,8 @@ const express = require("express"),
   { log } = console;
 
 // Routes
+const welcome = require("./routes/welcome");
+const cohorts = require("./routes/cohorts");
 // setup routes
 
 const app = express();
@@ -15,6 +17,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
 // use routes here
+app.use("/", welcome);
+app.use('/cohorts', cohorts);
 
 const DOMAIN = "localhost";
 const PORT = 4545;

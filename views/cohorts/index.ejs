@@ -1,0 +1,24 @@
+<%- include('../partials/header')  %> 
+    <div class="container-fluid">
+        <section class="cohort-list row">
+            <% for (let cohort of cohorts) { %> 
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="cohort-title">
+                                <span 
+                                    class="cohort-title-logo"
+                                    style="background-image: url(<%= cohort.logoUrl %>)"
+                                ></span>
+                                <h4><%= cohort.name %></h4>
+                            </div>
+
+                            <p class="card-text"><%= cohort.members %></p>
+                            <a href="/cohorts/<%= cohort.id %>" class="btn btn-primary">Show cohort</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %> 
+        </section>
+    </div>
+<%- include('../partials/footer.ejs')  %> 
