@@ -1,0 +1,68 @@
+<%- include('../partials/header') %> 
+<div class="container-fluid">
+    <section class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><%= cohort.name %></h4>
+                    <p class="card-text"><%= cohort.members %></p>
+                    <hr />
+
+                    <form 
+                        class="d-flex flex-column"
+                        action="/cohorts/<%= cohort.id %>"
+                        method="GET"
+                    >
+
+                        <div class="form-group">
+                            <label>Method</label><br />
+                            <label>
+                                <input 
+                                    type="radio"
+                                    name="method"
+                                    value="teamCount"
+                                    <%- method === 'teamCount' && `checked="checked"` %>
+                                /> Team Count
+                            </label><br />
+                            <label>
+                                <input 
+                                    type="radio"
+                                    name="method"
+                                    value="perTeam"
+                                    <%- method === 'perTeam' && `checked="checked"` %>
+                                /> Number Per Team
+                            </label><br />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="number">Quantity</label>
+                            <input type="number" name="quantity" class="form-control" value="<%= quantity %>">
+                        </div>
+
+                        <input class="btn btn-outline-primary" type="submit" value="Assign Teams">
+                    </form>
+
+                    <% if(teams.length > 0) { %> 
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Members</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for( let [i, team] of Object.entries(teams)) { %>
+                                    <tr>
+                                        <th scope="row"><%= +i + 1 %></th>
+                                        <td><%= team.join(', ') %></td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<%- include('../partials/footer') %> 
