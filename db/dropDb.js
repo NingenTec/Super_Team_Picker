@@ -6,7 +6,7 @@ const environment = process.env.NOD_ENV || "development";
 const knexConfig = require("../knexfile")[environment];
 
 function isPgInstalled() {
-  return /PstgreSQL/.test(execSync("psql --version").toString());
+  return /PostgreSQL/.test(execSync("psql --version").toString());
 }
 
 // execSync is a function that can excute shell commands
